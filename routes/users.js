@@ -3,18 +3,20 @@ var router = express.Router();
 let mysql = require('mysql');
 
 let connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'password',
-  database : 'sample_database',
+  host     : 'us-cdbr-east-05.cleardb.net',
+  user     : 'b0276d352c36e2',
+  password : '52f2771c',
+  database : 'heroku_6beac99d926d92f',
 });
 
-router.get('/', function(req, res, next) {
-  let sql = 'SELECT messages FROM sample_database.messages';
-  connection.query(sql, function(err, result) {
-  if (err) throw err;
-  res.json(result);
 
-})})
+router.get('/', function(req, res, next) {
+ let sql = 'SELECT * FROM heroku_6beac99d926d92f.messages;';
+ connection.query(sql, function(err, result) {
+   if (err) throw err;
+  res.send(result);
+})
+
+})
 
 module.exports = router;
