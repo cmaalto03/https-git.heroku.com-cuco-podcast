@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
  let sql = 'SELECT * FROM heroku_6beac99d926d92f.messages;';
  connection.query(sql, function(err, result) {
    if (err) throw err;
-  res.json(result);
+  res.status(200).send(result)
 })
 
 })
